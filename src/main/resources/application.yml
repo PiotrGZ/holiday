@@ -1,0 +1,10 @@
+external:
+  client:
+    holiday-api:
+      key: "your api key"
+      url:
+        holidays: "https://holidayapi.com/v1/holidays?key={key}&country={country}&year={year}&public={public}"
+        countries: "https://holidayapi.com/v1/countries?key={key}"
+server:
+  servlet:
+    context-path: /holiday

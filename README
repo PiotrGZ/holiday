@@ -1,0 +1,12 @@
+1. build jar file using mvn clean install command
+2. Generate holidayapi.com api key and replace it in application.yml file
+2. run jar file using java -jar command
+3. test endpoint using below curl request
+
+curl --location --request GET 'localhost:8080/holiday/compare' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "date":"2021-04-03",
+    "firstCode":"GB",
+    "secondCode":"DE"
+}'
