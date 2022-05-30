@@ -25,12 +25,17 @@ public class HolidayAPIClientTest {
         String countriesURI = "countries";
         String countryCode = "PL";
         LocalDate date = LocalDate.now();
-        List<Holiday> holidayList = Arrays.asList(Holiday.builder().build());
-        Holidays holidays = Holidays.builder().holidays(holidayList).build();
+        Holiday holiday = Mockito.mock(Holiday.class);
+        List<Holiday> holidayList = Arrays.asList(holiday);
+        Holidays holidays = new Holidays();
+        holidays.setHolidays(holidayList);
         RestTemplateBuilder restTemplateBuilder = Mockito.mock(RestTemplateBuilder.class);
         RestTemplate restTemplate = Mockito.mock(RestTemplate.class);
-        List<Country> countryList = Arrays.asList(Country.builder().code(countryCode).build());
-        Countries countries = Countries.builder().countries(countryList).build();
+        Country country = new Country();
+        country.setCode(countryCode);
+        List<Country> countryList = Arrays.asList(country);
+        Countries countries = new Countries();
+        countries.setCountries(countryList);
         //when
         when(restTemplateBuilder.build()).thenReturn(restTemplate);
         when(restTemplate.getForObject(countriesURI, Countries.class, apiKey)).thenReturn(countries);
